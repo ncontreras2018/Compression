@@ -170,6 +170,6 @@ public class Main {
 			
 			System.out.println("Decompressed " + key);
 		}
-		return stringForm.substring(stringForm.indexOf((char) Byte.MAX_VALUE) + 4).getBytes();
+		return stringForm.substring(stringForm.indexOf((char) Byte.MAX_VALUE) + 1).getBytes();
 	}
 }
