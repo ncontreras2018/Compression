@@ -158,19 +158,18 @@ public class Main {
 			stringForm += (char) cur;
 		}
 
-		int curPos = 0;
 
-		while (stringForm.charAt(curPos) != (char) Byte.MAX_VALUE) {
+		while (stringForm.charAt(0) != (char) Byte.MAX_VALUE) {
 
-			String key = stringForm.substring(curPos, curPos + 2);
-			String value = stringForm.substring(curPos + 2, curPos + 6);
-
-			stringForm.replace(key, value);
-
-			curPos += 6;
+			String key = stringForm.substring(0, 2);
+			String value = stringForm.substring(2, 6);
+			
+			stringForm = stringForm.substring(6);
+			
+			stringForm = stringForm.replace(key, value);
 			
 			System.out.println("Decompressed " + key);
 		}
-		return stringForm.getBytes();
+		return stringForm.substring(stringForm.indexOf((char) Byte.MAX_VALUE) + 4).getBytes();
 	}
 }
