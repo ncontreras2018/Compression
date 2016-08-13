@@ -45,12 +45,13 @@ public class Main {
 
 			if (targetFile.getName().endsWith(".compressedFile")) {
 				bytes = decompressFile(bytes);
-				stream = new FileOutputStream("C:/Users/Nicholas/Desktop/DECOMP-"
+				stream = new FileOutputStream(targetFile.getParent() + "/DECOMP-"
 						+ targetFile.getName().substring(0, targetFile.getName().indexOf(".compressedFile")));
 			} else {
 				bytes = compressFile(bytes);
-				stream = new FileOutputStream("C:/Users/Nicholas/Desktop/" + targetFile.getName() + ".compressedFile");
+				stream = new FileOutputStream(targetFile.getParent() + "/" + targetFile.getName() + ".compressedFile");
 			}
+			
 			try {
 				stream.write(bytes);
 			} finally {
